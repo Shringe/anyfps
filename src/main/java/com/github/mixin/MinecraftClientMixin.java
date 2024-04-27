@@ -11,7 +11,7 @@ public class MinecraftClientMixin {
     private final static int MAX_FPS = 520;
 
     // This allows framerate limits above 260 to be honored
-    @ModifyConstant(method = "render(B)V", constant = @Constant(intValue = 260))
+    @ModifyConstant(method = "render(Z)V", constant = @Constant(intValue = 260))
     private int modifyMaxFramerateCap(int originalMax) {
         return MAX_FPS;
     }

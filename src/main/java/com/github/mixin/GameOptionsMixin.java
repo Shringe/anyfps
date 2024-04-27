@@ -16,19 +16,19 @@ public class GameOptionsMixin {
 	}
 
 	// The point at which the options slider shows "Unlimited"
-	@ModifyConstant(method = "method_42559(Lnet/minecraft/text/Text;Ljava/lang/Integer;)Lnet/minecraft/text/Text", constant = @Constant(intValue = 260))
+	@ModifyConstant(method = "method_42559(Lnet/minecraft/text/Text;Ljava/lang/Integer;)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260))
 	private static int sliderTextMaxThreshold(int originalBound) {
 		return MAX_FPS;
 	}
 
 	// The upper limit of the options slider
-	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/SimpleOption$ValidatingIntSliderCallbacks;<init>(II)V"), index = 1)
+	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "net/minecraft/client/option/SimpleOption$ValidatingIntSliderCallbacks.<init> (II)V"), index = 1)
 	private int modifySliderTextLimit(int originalBound) {
 		return MAX_FPS / 10;
 	}
 
 	// honestly not sure
-	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "com/mojang/serialization/Codec.intRange (II)Lcom/mojang/serialization/Codec;"), index = 1)
+	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "com/mojang/serialization/Codec.intRange (II)Lcom/mojang/serialization/Codec;"), index = 1, remap = false)
 	private int modifyCodec(int originalCodec) {
 		return MAX_FPS;
 	}
