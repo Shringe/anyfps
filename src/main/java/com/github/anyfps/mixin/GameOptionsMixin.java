@@ -9,12 +9,6 @@ import org.spongepowered.asm.mixin.injection.*;
 public class GameOptionsMixin {
 	private final static int MAX_FPS = 520;
 
-//	// The constant MaxFps, not sure if this is used due to inlining in the compiler, but it doesn't hurt to be sure
-//	@ModifyConstant(method = "<init>", constant = @Constant(intValue = 260))
-//	private static int modifyMaxFramerateConstant(int originalMax) {
-//		return MAX_FPS;
-//	}
-
 	// The point at which the options slider shows "Unlimited"
 	@ModifyConstant(method = "method_42559(Lnet/minecraft/text/Text;Ljava/lang/Integer;)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260))
 	private static int sliderTextMaxThreshold(int originalBound) {
