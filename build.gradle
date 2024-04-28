@@ -38,7 +38,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "maven.modrinth:sodium:mc1.20.1-0.5.8"
+	modImplementation "maven.modrinth:sodium:mc${project.minecraft_version}-${project.sodium_version}"
 }
 
 processResources {
