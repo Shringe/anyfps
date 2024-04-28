@@ -1,6 +1,5 @@
-package com.github.mixin;
+package com.github.anyfps.mixin;
 
-import com.mojang.serialization.Codec;
 import net.minecraft.client.option.GameOptions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
@@ -23,7 +22,19 @@ public class GameOptionsMixin {
 	}
 
 	// The upper limit of the options slider
-	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "net/minecraft/client/option/SimpleOption$ValidatingIntSliderCallbacks.<init> (II)V"), index = 1)
+	@ModifyArg(
+			method = "<init>",
+			index = 1,
+			at = @At(
+				value = "INVOKE",
+				target = "net/minecraft/client/option/SimpleOption$ValidatingIntSliderCallbacks.<init> (II)V",
+				ordinal = 1
+			),
+			slice = @Slice(
+				from = @At(value = "INVOKE", target = "net/minecraft/client/option/SimpleOption.emptyTooltip ()Lnet/minecraft/client/option/SimpleOption$TooltipFactory;"),
+				to = @At(value = "INVOKE", target = "java/lang/Integer.valueOf (I)Ljava/lang/Integer;")
+			)
+		)
 	private int modifySliderTextLimit(int originalBound) {
 		return MAX_FPS / 10;
 	}
