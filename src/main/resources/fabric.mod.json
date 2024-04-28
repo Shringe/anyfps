@@ -1,18 +1,18 @@
 {
 	"schemaVersion": 1,
-	"id": "anyfps-mod",
+	"id": "anyfps",
 	"version": "${version}",
-	"name": "anyfps-mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "anyfps",
+	"description": "Allows your FPS to be capped at any value!",
 	"authors": [
-		"Me!"
+		"Shringe_"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Shringe/anyfps/"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/anyfps-mod/icon.png",
+	"icon": "assets/anyfps/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -20,7 +20,8 @@
 		]
 	},
 	"mixins": [
-		"anyfps-mod.mixins.json"
+		"anyfps.mixins.json",
+		"anyfps.mixins.sodium.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.10",
@@ -29,6 +30,6 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"sodium": "*"
 	}
 }
