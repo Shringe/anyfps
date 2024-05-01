@@ -8,8 +8,9 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(ControlValueFormatter.class)
 public interface ControlValueFormatterMixin {
-    @ModifyConstant(method = "lambda$fpsLimit$1(I)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260), remap = false)
-    private static int modifySliderTextMaxThreshold(int originalBound) {
+    // Sets the point where the fps will say "Unlimited"
+    @ModifyConstant(method = "lambda$fpsLimit$1(I)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260), remap = true)
+    private static int modifySliderTextMaxThreshold(int originalPoint) {
         return 520;
     }
 }
