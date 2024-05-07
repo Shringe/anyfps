@@ -1,0 +1,5 @@
+{
+  "text.autoconfig.anyfps.option.main.fpsLimitMax.@PrefixText": "If Sodium is not present, you may need to restart Minecraft for some of these settings to apply.",
+  "text.autoconfig.anyfps.option.main.fpsLimitMax": "Maximum FPS limit",
+  "text.autoconfig.anyfps.option.main.fpsLimitInterval": "Interval of the FPS slider snapping points"
+}
