@@ -15,7 +15,7 @@ public class GameOptionsMixin {
     // The point at which the options slider shows "Unlimited", default 260
     @ModifyConstant(method = "method_42559(Lnet/minecraft/text/Text;Ljava/lang/Integer;)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260))
     private static int sliderTextMaxThreshold(int originalBound) {
-        return getMaxFps() / Main.config.main.fpsLimitInterval;
+        return getMaxFps();
     }
 
     // The upper limit of the options slider, default 260
