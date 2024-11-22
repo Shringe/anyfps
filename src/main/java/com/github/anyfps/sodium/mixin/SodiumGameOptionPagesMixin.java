@@ -5,14 +5,15 @@ import net.caffeinemc.mods.sodium.client.gui.SodiumGameOptionPages;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import java.lang.Math;
+
+import static com.github.anyfps.Main.getMaxFps;
 
 @Mixin(SodiumGameOptionPages.class)
 public class SodiumGameOptionPagesMixin {
     // changes the max fps slider threshold, default 260
     @ModifyConstant(method = "lambda$general$19", constant = @Constant(intValue = 260), remap = false)
     private static int modifySliderMaxThreshold(int originalBound) {
-        return (int) Math.ceil((double) Main.config.main.fpsLimitMax / Main.config.main.fpsLimitInterval) * Main.config.main.fpsLimitInterval;
+        return getMaxFps();
     }
 
     // changes slider interval and minimum threshold, default 10
