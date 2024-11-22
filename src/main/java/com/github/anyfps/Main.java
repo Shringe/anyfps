@@ -12,4 +12,7 @@ public class Main implements ModInitializer {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
         this.config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
     }
+    public static int getMaxFps() {
+        return (int) Math.ceil((double) Main.config.main.fpsLimitMax / Main.config.main.fpsLimitInterval) * Main.config.main.fpsLimitInterval;
+    }
 }
