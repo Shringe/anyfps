@@ -10,9 +10,15 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
-        this.config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
     }
+
+    // Round the maximum fps up to the nearest interval
     public static int getMaxFps() {
-        return (int) Math.ceil((double) Main.config.main.fpsLimitMax / Main.config.main.fpsLimitInterval) * Main.config.main.fpsLimitInterval;
+        if (Main.config.main.fpsLimitMax % Main.config.main.fpsLimitInterval > 0) {
+            return ((Main.config.main.fpsLimitMax / Main.config.main.fpsLimitInterval) + 1) * Main.config.main.fpsLimitInterval;
+        } else {
+            return Main.config.main.fpsLimitMax;
+        }
     }
 }

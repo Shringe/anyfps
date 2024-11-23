@@ -1,34 +1,35 @@
 {
-	"schemaVersion": 1,
-	"id": "anyfps",
-	"version": "${version}",
-	"name": "anyfps",
-	"description": "Allows your FPS to be capped at any value!",
-	"authors": [
-		"Shringe_"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/Shringe/anyfps/"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/anyfps/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"modmenu": [
-			"com.github.anyfps.ModMenuIntegration"
-		],"main": [
-			"com.github.anyfps.Main"
-		]
-	},
-	"mixins": [
-		"anyfps.mixins.json",
-		"anyfps.mixins.sodium.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": "~1.21.3",
-		"java": ">=21",
-		"fabric-api": "*"
-	}
+  "schemaVersion": 1,
+  "id": "anyfps",
+  "version": "${version}",
+  "name": "anyfps",
+  "description": "Allows your FPS to be capped at any value!",
+  "authors": [
+    "Shringe_"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/Shringe/anyfps/"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/anyfps/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "modmenu": [
+      "com.github.anyfps.ModMenuIntegration"
+    ],
+    "main": [
+      "com.github.anyfps.Main"
+    ]
+  },
+  "mixins": [
+    "anyfps.mixins.json",
+    "anyfps.mixins.sodium.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.7",
+    "minecraft": "~1.21.3",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
 }
