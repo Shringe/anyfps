@@ -10,7 +10,6 @@ import static com.github.anyfps.Main.getMaxFps;
 @Mixin(ControlValueFormatter.class)
 public interface ControlValueFormatterMixin {
     // Sets the point where the fps will say "Unlimited", default 260
-    // TODO: Why is remapping this required for prod environment to function?
     @ModifyConstant(method = "lambda$fpsLimit$2(I)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260), remap = true)
     private static int modifySliderTextMaxThreshold(int originalPoint) {
         return getMaxFps();
