@@ -8,12 +8,14 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 import java.util.function.IntFunction;
 import java.util.function.ToIntFunction;
 
+import static com.github.anyfps.Main.getMaxFps;
+
 @Mixin(GameOptions.class)
 public class GameOptionsMixin {
     // The point at which the options slider shows "Unlimited", default 260
     @ModifyConstant(method = "method_42559(Lnet/minecraft/text/Text;Ljava/lang/Integer;)Lnet/minecraft/text/Text;", constant = @Constant(intValue = 260))
     private static int sliderTextMaxThreshold(int originalBound) {
-        return Main.config.main.fpsLimitMax;
+        return getMaxFps();
     }
 
     // The upper limit of the options slider, default 260
@@ -31,7 +33,7 @@ public class GameOptionsMixin {
             )
         )
     private int modifySliderTextLimit(int originalBound) {
-        return Main.config.main.fpsLimitMax / Main.config.main.fpsLimitInterval;
+        return getMaxFps() / Main.config.main.fpsLimitInterval;
     }
 
     // Allows game to save and load fps settings from 1 to the 32bit integer limit, default 10-260
